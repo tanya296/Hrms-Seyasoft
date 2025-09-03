@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HR Management System</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+
+  <header class="navbar">
+    <img class="logo" src="logo.png" alt="Logo">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#why-us">Why us</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>HR MANAGEMENT <br>SYSTEM</h1>
+      <p>Streamline your HR operations with our advanced HRM system, offering features like employee tracking, payroll, leave management, and performance reviews — all in one place.</p>
+      <a href="#" class="demo-btn">Book a demo</a>
+    </div>
+
+```
+<div class="right-image">
+  <img id="spinny-img" src="wheelfinal.png" alt="Spinning Wheel">
+</div>
+```
+
+  </section>
+
+  <!-- features -->
+  <section class="features-section" id="why-us">
+  <h2 class="animate-up">One Platform. Total Team Control!</h2>
+
+  <div class="features-grid">
+    <!-- Top row -->
+    <div class="feature-card animate-left">
+      <img src="features/module1.jpeg" alt="Smart Dashboard" />
+      <h3>Module 1</h3>
+      <p>Smart Dashboard</p>
+    </div>
+    <div class="feature-card animate-left">
+      <img src="features/module2.jpeg" alt="Leave & Attendance" />
+      <h3>Module 2</h3>
+      <p>Leave & Attendance Management</p>
+    </div>
+    <div class="feature-card animate-left">
+      <img src="features/module3.jpeg" alt="Project & Time Tracking" />
+      <h3>Module 3</h3>
+      <p>Project & Time Tracking</p>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="feature-card animate-right">
+      <img src="features/module4.jpeg" alt="HR Letters" />
+      <h3>Module 4</h3>
+      <p>HR Letters & Documents</p>
+    </div>
+    <div class="feature-card animate-right">
+      <img src="features/module5.jpeg" alt="Self Service" />
+      <h3>Module 5</h3>
+      <p>Employee Self-Service Portal</p>
+    </div>
+    <div class="feature-card animate-right">
+      <img src="features/module6.jpeg" alt="Feed & Communication" />
+      <h3>Module 6</h3>
+      <p>Company Feed & Communication</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-show');
+        }, parseFloat(entry.target.dataset.delay) * 1000);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.feature-card').forEach((el, i) => {
+    const delay = (i % 3) * 0.2; // stagger left to right
+    el.dataset.delay = delay;
+    el.classList.add(i < 3 ? 'animate-left' : 'animate-right');
+    observer.observe(el);
+  });
+
+  const heading = document.querySelector(".features-section h2");
+  heading.classList.add("animate-up");
+  heading.dataset.delay = 0;
+  observer.observe(heading);
+</script>
+
+
+
+
+  <section class="satisfaction-section" id="features">
+    <div class="satisfaction-container">
+      <h2 class="satisfaction-heading">Need More?</h2>
+      <p class="satisfaction-subtext">
+        Explore additional modules tailored to fit every unique HR need.
+      </p>
+      <div class="satisfaction-modules">
+        <div class="satisfaction-card">
+          <img src="features/module7.jpeg" alt="Module 7" />
+          <p style="font-size: small;">Recruitment Automation</p>
+        </div>
+        <div class="satisfaction-card">
+          <img src="features/module8.jpeg" alt="Module 8" />
+          <p style="font-size: small;">Performance Reviews</p>
+        </div>
+        <div class="satisfaction-card">
+          <img src="features/module9.jpeg" alt="Module 9" />
+          <p style="font-size: small;">Training & Development</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const options = {
+      threshold: 0.3,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target); // Animate once
+        }
+      });
+    }, options);
+
+    // Observe heading and subtext
+    const heading = document.querySelector(".satisfaction-heading");
+    const subtext = document.querySelector(".satisfaction-subtext");
+    const cards = document.querySelectorAll(".satisfaction-card");
+
+    if (heading) observer.observe(heading);
+    if (subtext) observer.observe(subtext);
+    cards.forEach((card) => observer.observe(card));
+  });
+</script>
+
+
+  <!-- FAQ Section -->
+
+  <div class="faq-top-bar" id="faq">
+    <h2>FAQs</h2>
+  </div>
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="faq-grid">
+        <div class="faq-card">
+          <div class="faq-head">
+            <span class="faq-icon">↗</span>
+            <h3>Is the system customizable for different company policies?</h3>
+          </div>
+          <div class="faq-answer">
+            Absolutely. You can configure leave types, shift schedules, review criteria, and more to match your organization's unique policies.
+          </div>
+        </div>
+        <div class="faq-card">
+          <div class="faq-head">
+            <span class="faq-icon">↗</span>
+            <h3>Is it secure to store employee data on this platform?</h3>
+          </div>
+          <div class="faq-answer">
+            We use top-grade encryption and follow best practices in data protection to ensure your employee data stays safe and private.
+          </div>
+        </div>
+        <div class="faq-card">
+          <div class="faq-head">
+            <span class="faq-icon">↗</span>
+            <h3>Is training required to use this HRM system?</h3>
+          </div>
+          <div class="faq-answer">
+            Not at all! The interface is intuitive and user-friendly. However, we provide onboarding support and tutorials if needed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Final Slide -->
+<section class="final-slide" id="contact">
+  <div class="container-final">
+    <div class="left-section-final">
+      <div class="grey-block-1"></div>
+      <div class="grey-block-2"></div>
+      <div class="yellow-accent"></div>
+      <img src="women.png" alt="Woman with laptop" class="women">
+    </div>
+    <div class="right-section-final">
+      <h1 class="main-text final-animate">
+  We can't wait to see you <span>grow !</span>
+
+</h1>
+
+  <p class="sub-text">For any questions about the Service,<br>please reach out to</p>
+
+  <!-- Contact URL Button -->
+  <div class="contact-section">
+    <a href="https://seyasoftech.com/" class="contact-url" target="_blank">
+      https://seyasoftech.com/
+    </a>
+  </div>
+
+<div class="contact-details-block">
+  <div class="contact-item">
+    <span class="icon ringing blue">📞</span>
+    <div>
+      <strong>Call to ask any question</strong><br>
+      +91 934-591-0713
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="icon bounce blue">✉️</span>
+    <div>
+      <strong>Email to get free quote</strong><br>
+      enquiry@seyasoftech.com
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="icon blue">📍</span>
+    <div>
+      <strong>Visit our office</strong><br>
+      Seyasoft Technology Solutions Pvt Ltd,<br>
+      Flat 3D, JP Towers,<br>
+      Dr. Thirumoorthy Nagar Main Road,<br>
+      Nungambakkam, Chennai - 600034.
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+
+  <div id="image-modal" class="modal">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const img = document.getElementById("spinny-img");
+    window.addEventListener("scroll", () => {
+      if (img) {
+        const rotateValue = window.scrollY / 5;
+        img.style.transform = `rotate(${rotateValue}deg)`;
+      }
+    });
+
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.querySelector(".close-btn");
+
+    document.querySelectorAll(".feature-card img, .flash-card img, .satisfaction-card img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.satisfaction-card').forEach(card => {
+      observer.observe(card);
+    });
+  });
+
+  const cursor = document.querySelector(".custom-cursor");
+  const glow = document.querySelector(".cursor-glow");
+
+  document.addEventListener("mousemove", (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    cursor.style.left = `${x}px`;
+    cursor.style.top = `${y}px`;
+
+    glow.style.left = `${x}px`;
+    glow.style.top = `${y}px`;
+  });
+
+  const finalHeading = document.querySelector(".final-animate");
+
+  window.addEventListener("scroll", () => {
+    const rect = finalHeading.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      finalHeading.classList.add("visible");
+    } else {
+      finalHeading.classList.remove("visible");
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach((q) => {
+    q.addEventListener('click', () => {
+      q.nextElementSibling.classList.toggle('show');
+    });
+  });
+
+</script>
+
+</body>
+</html>
